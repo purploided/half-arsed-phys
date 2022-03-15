@@ -1,0 +1,26 @@
+<html>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./style.css">
+  <head>
+    <title>Phys Ed</title>
+    <link rel="shortcut icon" href="/addatives/physed-logo.png" type="image/x-icon">
+  </head>
+  <body>
+    <img src="./addatives/72_-Audio_Port-_connector_cable_plug-512.webp" id="electronfade" class="electronfade" style="z-index: 5;">
+    <img src="./addatives/background3.png" id="background" class="background" style="z-index: -5;">
+    <button onclick="clsn = true" class="collisionChecker" id="collisionChecker" onmouseup="collisOn();">Turn Collision Listener On</button>
+    <button onclick="clsn = false" class="collisionCheckerOff" id="collisionCheckerOff" onmouseup="collisOff();">Turn Collision Listener Off</button>
+
+    <button onclick="orbt = true" class="orbitOn" id="orbitOn" onmouseup="orbOn();">Turn Orbit On</button>
+    <button onclick="orbt = false" class="orbitOff" id="orbitOff" onmouseup="orbOff();">Turn Orbit Off</button>
+
+    <button onclick="crash = true" class="crashOn" id="crashOn" onmouseup="crashOn();">Turn Crash Physics On</button>
+    <button onclick="crash = false" class="crashOff" id="crashOff" onmouseup="crashOff();">Turn Crash Physics Off</button>
+
+    <img src="./addatives/72_-Audio_Port-_connector_cable_plug-512.webp" id="electronorb" class="electronorb" style="z-index: 5;">
+    <img src="./addatives/72_-Audio_Port-_connector_cable_plug-512.webp" id="electroncoll" class="electroncoll" style="z-index: 5;">
+    <canvas>
+    </canvas>
+  </body>
+  <script src="./scripts/physics.js"></script>
+</html>
