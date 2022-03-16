@@ -16,6 +16,8 @@ var electron = document.getElementById("electronfade");
 
 electron.onmousedown = function(event) { // starts the event
 
+    
+
     let shiftX = event.clientX - electron.getBoundingClientRect()
         .left;
     let shiftY = event.clientY - electron.getBoundingClientRect()
@@ -63,6 +65,7 @@ electron.onmousedown = function(event) { // starts the event
             if (clsn == true) {
                 collisionPhysics();
             }
+            fpsSaver();
         }
         else if (electron.style.top >= "400px") { // if the "electron" is equal to or greater than 400px
             document.removeEventListener('mousemove', onMouseMove);
@@ -78,6 +81,7 @@ electron.onmousedown = function(event) { // starts the event
             if (clsn == true) {
                 collisionPhysics();
             }
+            fpsSaver();
         }
         else { // if the "electron" is at the terminal height it can possibly be at
             document.removeEventListener('mousemove', onMouseMove);
@@ -93,7 +97,7 @@ electron.onmousedown = function(event) { // starts the event
             if (clsn == true) {
                 collisionPhysics();
             }
-            
+            fpsSaver();
         }
 
         if (crash == true) {
@@ -209,7 +213,7 @@ function crashPhysics() { // on collision two electrons with explode on contact
 
     let coll = false
 
-    if (electron.style.left >= "65%") { // if the "electron" is at the right side of the screen
+    if (electron.style.left >= "65%") { 
 
         coll = true
 
@@ -228,3 +232,120 @@ function crashPhysics() { // on collision two electrons with explode on contact
         console.error("Crash expected.") // log that it expected a crash
     }
 }
+
+/*
+    i am about to script a system to help with lower end pcs
+//
+    FPS Saver
+*/
+
+function fpsSaver() {
+
+    // lag switch
+
+    let lagSwitch = false;
+    // let lagSwitch = true \\
+
+    if (lagSwitch == true) { // set to true for better fps
+        electron.style.transition = "15ms linear";
+    }
+    else {
+        // this just here
+    }
+
+    // quality switch
+
+    let qualitySwitch = false;
+    // let qualitySwitch = true \\
+
+    if (qualitySwitch == true) { // set to true for worse quality (higher fps)
+        electron.style.filter = "blur(3px)";
+    }
+    else {
+        electron.style.filter = "blur(0px)";
+    }
+
+    // arcade physics
+
+    let arcadeSwitch = false;
+    // let arcadeSwitch = true \\
+
+    if (arcadeSwitch == true) { // set to true for arcade physics (worse fps)
+        electron.style.transition = "400ms all";
+    }
+    else {
+        // this just here
+    }
+
+    /*    _____________________________________________________________________
+         /                                                                      \
+        |                             HOW TO USE                                 |
+        |                                                                        |
+        |     For better fps:                                                    |
+        |                                                                        |
+        |     lagSwitch = true; (better fps)                                     |
+        |     qualitySwitch = true; (better fps)                                 |
+        |     arcadeSwitch = false; (better fps)                                 |
+        |                                                                        |
+        |     For worse fps:                                                     |
+        |                                                                        |
+        |     lagSwitch = false; (worse fps but smoother experience)             |
+        |     qualitySwitch = false; (worse fps but better quality)              |
+        |     arcadeSwitch = true; (worse fps, and for the arcade enthusiasts)   |
+        |                                                                        |
+        |                                                                        |
+        |     or make your own configs!                                          |
+        \________________________________________________________________________/
+    */
+}
+
+
+
+//______________________________________________________________________________________________________________________\\
+
+
+
+
+
+/*
+    the code i am about to script is for adding drag to the
+    "electron"
+//
+    Glide/Drag Physics
+*/
+
+/*
+
+function glidePhysics() { // glide physics
+
+    // needs a bit of work, but it works for now
+
+    switch (true) { // switch statement for the "electron" to glide
+        case (electron.style.left <= "10%"): // if the "electron" is less than 10% of the way across the screen
+            electron.style.left = "11.33%";
+            break;
+        case (electron.style.left <= "20%"): // if the "electron" is less than 20% of the way across the screen
+            electron.style.left = "21.33%";
+            break;
+        case (electron.style.left <= "30%"): // if the "electron" is less than 30% of the way across the screen
+            electron.style.left = "31.33%";
+            break;
+        case (electron.style.left <= "40%"): // if the "electron" is less than 40% of the way across the screen
+            electron.style.left = "41.33%";
+            break;
+        case (electron.style.left <= "50%"): // if the "electron" is less than 50% of the way across the screen
+            electron.style.left = "51.33%";
+            break;
+        case (electron.style.left <= "60%"): // if the "electron" is less than 60% of the way across the screen
+            electron.style.left = "61.33%";
+            break;
+        case (electron.style.left <= "70%"): // if the "electron" is less than 70% of the way across the screen
+            electron.style.left = "71.33%";
+            break;
+        case (electron.style.left <= "80%"): // if the "electron" is less than 80% of the way across the screen
+            electron.style.left = "81.33%";
+            break;
+    }
+    electron.style.transition = "400ms all";
+}
+*/
