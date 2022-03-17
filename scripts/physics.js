@@ -66,6 +66,8 @@ electron.onmousedown = function(event) { // starts the event
                 collisionPhysics();
             }
             fpsSaver();
+
+            modsList();
         }
         else if (electron.style.top >= "400px") { // if the "electron" is equal to or greater than 400px
             document.removeEventListener('mousemove', onMouseMove);
@@ -82,6 +84,8 @@ electron.onmousedown = function(event) { // starts the event
                 collisionPhysics();
             }
             fpsSaver();
+            
+            modsList();
         }
         else { // if the "electron" is at the terminal height it can possibly be at
             document.removeEventListener('mousemove', onMouseMove);
@@ -98,6 +102,9 @@ electron.onmousedown = function(event) { // starts the event
                 collisionPhysics();
             }
             fpsSaver();
+
+            modsList();
+            
         }
 
         if (crash == true) {
@@ -277,6 +284,23 @@ function fpsSaver() {
         // this just here
     }
 
+    // more arcade physics
+
+    let arcadeMax = false;
+    // let arcadeMax = true; \\
+
+    if (arcadeMax == true) {
+        electron.style.filter = "blur(1px)";
+        electron.style.borderRadius = "200%";
+        electron.style.borderColor = "black";
+        electron.style.borderStyle = "solid";
+        electron.style.borderWidth = "5px";
+        electron.style.borderLeft = "-5px";
+    }
+    else {
+        // this is just here
+    }
+
     /*    _____________________________________________________________________
          /                                                                      \
         |                             HOW TO USE                                 |
@@ -286,12 +310,14 @@ function fpsSaver() {
         |     lagSwitch = true; (better fps)                                     |
         |     qualitySwitch = true; (better fps)                                 |
         |     arcadeSwitch = false; (better fps)                                 |
+        |     arcadeMax = false; (better fps)                                    |
         |                                                                        |
-        |     For worse fps:                                                     |
+        |     For better quality:                                                |
         |                                                                        |
         |     lagSwitch = false; (worse fps but smoother experience)             |
         |     qualitySwitch = false; (worse fps but better quality)              |
         |     arcadeSwitch = true; (worse fps, and for the arcade enthusiasts)   |
+        |     arcadeMax = true; (worse fps, and for the arcade enthusiasts)      |
         |                                                                        |
         |                                                                        |
         |     or make your own configs!                                          |
@@ -299,9 +325,120 @@ function fpsSaver() {
     */
 }
 
-
-
 //______________________________________________________________________________________________________________________\\
+
+/*
+    mods time
+//
+    Mods Function
+*/
+
+function modsList() {
+    let modSlot = 0
+    let modSlot1 = 0
+    let modSlot2 = 0
+    let modSlot3 = 0
+    let modSlot4 = 0
+
+    if (modSlot == 1) {
+        // The Example Mod
+
+        /* 
+           MOD NAME: RealTime Oribiter
+           MOD DESCRIPTION: Makes the "electron" orbit in REALTIME
+        */
+
+        /*
+        orbitTimeoutO = setTimeout // differs orbit timeouts to the settimeout
+
+        if (electron.style.left <= "105px") { // if the "electron" is far beside the "orbiter" then
+            electron.style.position = "absolute";
+            orbitTimeoutO(() => {    electron.style.top = "1.1px"; }, 102.22);
+        }
+        if (electron.style.top >= "750px") {
+            orbitTimeoutO(() => {    electron.style.top = "-1.2px", electron.style.left = "1.1px"; }, 102.22);
+        }
+        else if (electron.style.left >= "106px") { // else, orbit the "electron"
+            orbitTimeoutO(() => {    electron.style.top = "1.1px", electron.style.left = "1.1px"; }, 102.22);
+        }
+
+        electron.style.transition = "5001ms all";
+        */
+    }
+    else if (modSlot1 == 1) {
+        /* 
+           MOD NAME:
+           MOD DESCRIPTION: 
+        */
+
+    }
+    else if (modSlot2 == 1) {
+        /* 
+           MOD NAME:
+           MOD DESCRIPTION: 
+        */
+
+    }
+    else if (modSlot3 == 1) {
+        /* 
+           MOD NAME:
+           MOD DESCRIPTION: 
+        */
+
+    }
+    else if (modSlot4 == 1) {
+        /* 
+           MOD NAME:
+           MOD DESCRIPTION: 
+        */
+
+    }
+    else {
+        console.warn("No mod active.");
+    }
+}
+
+    /* 
+
+
+
+            _____________________________________________________________________
+         /                                                                      \
+        |                             HOW TO USE                                 |
+        |                                                                        |
+        |     Put code or scripts you find inside the "mod" statements           |                                                                   |
+        |     To do this you can paste the code inside the if statements         |
+        |     and set the specific mod slot to "1"                               |
+        |     Please be sure to IF copying code from online, e.g. github         |
+        |     make sure to read the code                                         |
+        |                                                                        |
+        |     For making mods:                                                   |
+        |                                                                        |
+        |     Edit the MOD NAME & MOD DESCRIPTION to your Mod's name and desc-   |
+        |     ription. Please do not create mods that will jack anothers game.   |
+        |     All mods can have their own license, meaning some you can edit, s- |
+        |     ome you cannot, please be sure to abide the the selected mod's     |
+        |     license before modifying or "skidding".                            |
+        |                                                                        |
+        |     Have fun!                                                          |
+        \________________________________      __________________________________/
+                                        |      |
+                                        |      |
+                                        |      |
+                                        |      |
+                                        |      |
+                                        |      |
+                                        |      |
+                                        |      |
+                                        |      |
+                                        |      |
+                                        |      |
+                                        --------
+    
+
+
+    */
+
 
 
 
