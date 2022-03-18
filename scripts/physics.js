@@ -1,5 +1,5 @@
 /*
-    This is an electron app about physics that Glowsik_ on discord recommended me to create
+    This is an electron app about physics that Glowstik_ on discord recommended me to create
     all the code written within this script is commented to a tea
     you can also comment/uncomment the other blocks to get some sort of chaotic version of the physics
 */
@@ -7,6 +7,7 @@
 let clsn = false
 let orbt = false
 let crash = false
+let susp = false
 
 var electron = document.getElementById("electronfade");
 
@@ -53,11 +54,11 @@ electron.onmousedown = function(event) { // starts the event
 
         if (electron.style.top >= "700px") { // if the "electron" is equal to or greater than 700px
             document.removeEventListener('mousemove', onMouseMove);
-            electron.onmouseup = document.getElementById("electronfade").style.top = "993px";
+            electron.onmouseup = document.getElementById("electronfade").style.top = "1045.55px";
             electron.onmouseup = document.getElementById("electronfade").style.transition = "302ms linear";
 
             setTimeout(() => {  document.getElementById("electronfade").style.top = "970px"; }, 302.3);
-            setTimeout(() => { document.getElementById("electronfade").style.top = "993px"; }, 602.8);
+            setTimeout(() => { document.getElementById("electronfade").style.top = "1045.55px"; }, 602.8);
 
             if (orbt == true) {
                 orbitPhysics();
@@ -68,14 +69,18 @@ electron.onmousedown = function(event) { // starts the event
             fpsSaver();
 
             modsList();
+
+            if (susp == true) {
+                invisibleSuspension();
+            }
         }
         else if (electron.style.top >= "400px") { // if the "electron" is equal to or greater than 400px
             document.removeEventListener('mousemove', onMouseMove);
-            electron.onmouseup = document.getElementById("electronfade").style.top = "993px";
+            electron.onmouseup = document.getElementById("electronfade").style.top = "1045.55px";
             electron.onmouseup = document.getElementById("electronfade").style.transition = "332ms linear";
     
             setTimeout(() => {  document.getElementById("electronfade").style.top = ax = Math.floor((Math.random() * 750) + 80); + "px"; }, 332.3);
-            setTimeout(() => { document.getElementById("electronfade").style.top = "993px"; }, 662.8);
+            setTimeout(() => { document.getElementById("electronfade").style.top = "1045.55px"; }, 662.8);
 
             if (orbt == true) {
                 orbitPhysics();
@@ -86,14 +91,18 @@ electron.onmousedown = function(event) { // starts the event
             fpsSaver();
             
             modsList();
+
+            if (susp == true) {
+                invisibleSuspension();
+            }
         }
         else { // if the "electron" is at the terminal height it can possibly be at
             document.removeEventListener('mousemove', onMouseMove);
-            electron.onmouseup = document.getElementById("electronfade").style.top = "993px";
+            electron.onmouseup = document.getElementById("electronfade").style.top = "1045.55px";
             electron.onmouseup = document.getElementById("electronfade").style.transition = "302ms linear";
 
             setTimeout(() => {  document.getElementById("electronfade").style.top = "820px"; }, 302.9);
-            setTimeout(() => { document.getElementById("electronfade").style.top = "993px"; }, 602.8);
+            setTimeout(() => { document.getElementById("electronfade").style.top = "1045.55px"; }, 602.8);
 
             if (orbt == true) {
                 orbitPhysics();
@@ -104,6 +113,10 @@ electron.onmousedown = function(event) { // starts the event
             fpsSaver();
 
             modsList();
+
+            if (susp == true) {
+                invisibleSuspension();
+            }
             
         }
 
@@ -171,6 +184,25 @@ function orbOn() {
     document.getElementById("electronorb").style.display = "block";
 }
 
+function susOff() {
+    document.getElementById("susOff").style.display = "none";
+    document.getElementById("susOn").style.display = "block";
+    document.getElementById("suslimit").style.display = "none";
+
+    document.getElementById("bump1").style.display = "none";
+    document.getElementById("bump2").style.display = "none";
+    document.getElementById("bump3").style.display = "none";
+}
+function susOn() {
+    document.getElementById("susOn").style.display = "none";
+    document.getElementById("susOff").style.display = "block";
+    document.getElementById("suslimit").style.display = "block";
+
+    document.getElementById("bump1").style.display = "block";
+    document.getElementById("bump2").style.display = "block";
+    document.getElementById("bump3").style.display = "block";
+}
+
 /*
     crash listening
 */
@@ -205,6 +237,9 @@ function orbitPhysics() { // orbit physics
     }
     else if (electron.style.left >= "106px") { // else, orbit the "electron"
         orbitTimeout(() => {    electron.style.top = "0.1px", electron.style.left = "0.1px"; }, 102.22);
+    }
+    else {
+        console.error("Orbit failed, or expected but didn't happen.");
     }
 
     electron.style.transition = "401ms all";
@@ -402,7 +437,7 @@ function modsList() {
 
 
 
-            _____________________________________________________________________
+           ____________________________________________________________________
          /                                                                      \
         |                             HOW TO USE                                 |
         |                                                                        |
@@ -442,6 +477,34 @@ function modsList() {
 
 
 
+/*
+    i am about to script suspension physics, or what ill call "invisble suspension"
+//
+    Suspension Physics
+*/
+
+function invisibleSuspension() { // creates the function "invisibleSuspension"
+
+    let suspension = "none"; // the diff for suspension
+
+    electron.style.transition = "352ms all";
+
+    if (suspension == "short") { // if the suspension diff is short
+        setTimeout(() => {  document.getElementById("electronfade").style.top = "990px"; }, 355.9);
+        setTimeout(() => { document.getElementById("electronfade").style.top = "1030.55px"; }, 755.8);
+        setTimeout(() => { document.getElementById("electronfade").style.top = "991px"; }, 855.8);
+        setTimeout(() => { document.getElementById("electronfade").style.top = "1045.55px"; }, 955.8);
+    }
+    else if (suspension == "long") { // if the suspension diff is long
+        setTimeout(() => {  document.getElementById("electronfade").style.top = "985px"; }, 355.9);
+        setTimeout(() => { document.getElementById("electronfade").style.top = "1030.55px"; }, 655.8);
+        setTimeout(() => { document.getElementById("electronfade").style.top = "989px"; }, 855.8);
+        setTimeout(() => { document.getElementById("electronfade").style.top = "1045.55px"; }, 1000.8);
+    }
+    else {
+        console.error("Suspension Expected but failed to execute or didn't happen."); // error
+    }
+}
 
 
 /*

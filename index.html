@@ -8,6 +8,13 @@
   <body>
     <img src="./addatives/72_-Audio_Port-_connector_cable_plug-512.webp" id="electronfade" class="electronfade" style="z-index: 5;">
     <img src="./addatives/background3.png" id="background" class="background" style="z-index: -5;">
+
+    <img src="./addatives/bump.png" id="bump1" class="bump1">
+
+    <img src="./addatives/bump.png" id="bump2" class="bump2">
+    
+    <img src="./addatives/bump.png" id="bump3" class="bump3">
+
     <button onclick="clsn = true" class="collisionChecker" id="collisionChecker" onmouseup="collisOn();">Turn Collision Listener On</button>
     <button onclick="clsn = false" class="collisionCheckerOff" id="collisionCheckerOff" onmouseup="collisOff();">Turn Collision Listener Off</button>
 
@@ -17,10 +24,15 @@
     <button onclick="crash = true" class="crashOn" id="crashOn" onmouseup="crashOn();">Turn Crash Physics On</button>
     <button onclick="crash = false" class="crashOff" id="crashOff" onmouseup="crashOff();">Turn Crash Physics Off</button>
 
+    <button onclick="susp = true" class="susOn" id="susOn" onmouseup="susOn();">Turn Suspension Physics On</button>
+    <button onclick="susp = false" class="susOff" id="susOff" onmouseup="susOff();">Turn Suspension Physics Off</button>
+
     <img src="./addatives/72_-Audio_Port-_connector_cable_plug-512.webp" id="electronorb" class="electronorb" style="z-index: 5;">
     <img src="./addatives/72_-Audio_Port-_connector_cable_plug-512.webp" id="electroncoll" class="electroncoll" style="z-index: 5;">
     <canvas>
     </canvas>
+
+    <h1 id="suslimit" class="suslimit">Suspension Limit</h1>
   </body>
   <script src="./scripts/physics.js"></script>
 </html>

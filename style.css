@@ -8,6 +8,56 @@
 
     position: absolute;
 }
+.bump1 {
+    width: 100px;
+    height: 100px;
+
+    position: absolute;
+
+    top: 1035.55px;
+    left: 50%;
+
+    z-index: 5;
+
+    display: none;
+}
+.bump2 {
+    width: 100px;
+    height: 100px;
+
+    position: absolute;
+
+    top: 1035.55px;
+    left: 30%;
+
+    z-index: 5;
+
+    display: none;
+}
+.bump3 {
+    width: 100px;
+    height: 100px;
+
+    position: absolute;
+
+    top: 1035.55px;
+    left: 10%;
+
+    z-index: 5;
+
+    display: none;
+}
+.suslimit {
+    top: 71%;
+    left: 32.3%;
+
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+
+    display: none;
+
+    position: absolute;
+}
 .electroncoll {
     width: 40px;
     height: 40px;
@@ -79,6 +129,66 @@
 
     top: 0%;
     left: 0%;
+
+    width: 200px;
+    height: 50px;
+
+    background-color: #ffffff;
+
+    z-index: 2;
+
+    cursor: pointer;
+
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    color: #000000;
+
+    display: none;
+
+    box-shadow: 0px 0px 10px #000000;
+
+    transition: all 0.5s;
+
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+}
+.susOn { /* button to check for collisions */
+    position: absolute;
+
+    top: 0%;
+    left: 30%;
+
+    width: 200px;
+    height: 50px;
+
+    background-color: #ffffff;
+
+    z-index: 2;
+
+    cursor: pointer;
+
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    color: #000000;
+
+    box-shadow: 0px 0px 10px #000000;
+
+    transition: all 0.5s;
+
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+}
+.susOff { /* button to check for collisions */
+    position: absolute;
+
+    top: 0%;
+    left: 30%;
 
     width: 200px;
     height: 50px;
