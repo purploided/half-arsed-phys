@@ -8,7 +8,7 @@ The most Half Arsed Physics game on this planet! Please bully me about this, muc
 npx electron-packager `${file location}` phys-ed --win32 --electron-version=17.1.1 --overwrite
 ```
 
-Or.. You could also use the [already packaged thing](https://drive.google.com/file/d/1vIpr4vovb-hWljC5HeVtXN5lIOaY2G3D/view?usp=sharing), this is just for people who want to update the game. 
+Or.. You could also use the [already packaged thing](https://drive.google.com/file/d/1YZcf1oBTikXt0phLJD_HDdJfm3Mnzl4p/view?usp=sharing), this is just for people who want to update the game. 
 
 # How to edit the game
 
