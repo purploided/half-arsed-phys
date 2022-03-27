@@ -3,7 +3,7 @@
     height: 45px;
     cursor: pointer;
 
-    left: 15%;
+    left: 49%;
     top: 30%;
 
     position: absolute;
@@ -78,6 +78,8 @@
 
     box-shadow: 0px 0px 10px #000000;
 
+    border-radius: 10px;
+
     transition: all 0.5s;
 
     -webkit-transition: all 0.5s;
@@ -99,6 +101,8 @@
     z-index: 10;
 
     cursor: pointer;
+
+    border-radius: 10px;
 
     font-size: 15px;
     font-weight: bold;
@@ -131,6 +135,8 @@
 
     cursor: pointer;
 
+    border-radius: 10px;
+
     display: none;
 
     font-size: 15px;
@@ -161,6 +167,8 @@
     z-index: 2;
 
     cursor: pointer;
+
+    border-radius: 10px;
 
     font-size: 15px;
     font-weight: bold;
@@ -193,6 +201,8 @@
 
     cursor: pointer;
 
+    border-radius: 10px;
+
     display: none;
 
     font-size: 15px;
@@ -223,6 +233,8 @@
     z-index: 2;
 
     cursor: pointer;
+
+    border-radius: 10px;
 
     font-size: 15px;
     font-weight: bold;
@@ -256,6 +268,8 @@
 
     cursor: pointer;
 
+    border-radius: 10px;
+
     display: none;
 
     font-size: 15px;
@@ -286,6 +300,8 @@
     z-index: 2;
 
     cursor: pointer;
+
+    border-radius: 10px;
 
     font-size: 15px;
     font-weight: bold;
@@ -319,6 +335,8 @@
 
     cursor: pointer;
 
+    border-radius: 10px;
+
     display: none;
 
     font-size: 15px;
@@ -349,6 +367,8 @@
     z-index: 2;
 
     cursor: pointer;
+
+    border-radius: 10px;
 
     font-size: 15px;
     font-weight: bold;

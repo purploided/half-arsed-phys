@@ -59,6 +59,7 @@ electron.onmousedown = function (event) {
             }
             fpsSaver();
             modsList();
+            wallScrape();
             if (susp == true) {
                 invisibleSuspension();
             }
@@ -80,6 +81,7 @@ electron.onmousedown = function (event) {
             }
             fpsSaver();
             modsList();
+            wallScrape();
             if (susp == true) {
                 invisibleSuspension();
             }
@@ -101,6 +103,7 @@ electron.onmousedown = function (event) {
             }
             fpsSaver();
             modsList();
+            wallScrape();
             if (susp == true) {
                 invisibleSuspension();
             }
@@ -222,6 +225,27 @@ function crashPhysics() {
     }
     else {
         console.error("Crash expected."); // log that it expected a crash
+    }
+}
+/*
+    i am going to script a "wall scraping" type thingy
+//
+    Wall Scraping
+*/
+function wallScrape() { // this is the wall scraping function
+    if (electron.style.left <= "1%") { // if the "electron" is near the left wall then
+        electron.style.top = "-0.1px";
+        electron.style.transition = "5500ms linear";
+
+        // this will make the "electron" smaller as it goes down the wall
+
+        electron.style.width = "15px";
+        electron.style.height = "15px";
+
+        setTimeout((() => { electron.style.width = "45px"; electron.style.height = "45px"; }), 5500); // this will make the "electron" bigger again
+    }
+    else {
+        // this is just here
     }
 }
 /*
