@@ -386,3 +386,14 @@
     -o-transition: all 0.5s;
     -ms-transition: all 0.5s;
 }
+.saveButton {
+    position: absolute;
+
+    top: 6%;
+}
+.loadButton {
+    position: absolute;
+
+    top: 6%;
+    left: 3%;
+}
