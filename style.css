@@ -8,6 +8,18 @@
 
     position: absolute;
 }
+.electron2 {
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+
+    left: 39%;
+    top: 30%;
+
+    display: none;
+
+    position: absolute;
+}
 .suslimit {
     top: 71%;
     left: 32.3%;
@@ -358,6 +370,73 @@
 
     top: 0%;
     left: 36%;
+
+    width: 200px;
+    height: 50px;
+
+    background-color: #ffffff;
+
+    z-index: 2;
+
+    cursor: pointer;
+
+    border-radius: 10px;
+
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    color: #000000;
+
+    display: none;
+
+    box-shadow: 0px 0px 10px #000000;
+
+    transition: all 0.5s;
+
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+}
+
+.ballOn { /* button to check for collisions */
+    position: absolute;
+
+    top: 0%;
+    left: 0%;
+
+    width: 200px;
+    height: 50px;
+
+    background-color: #ffffff;
+
+    z-index: 2;
+
+    cursor: pointer;
+
+    border-radius: 10px;
+
+    display: none;
+
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    color: #000000;
+
+    box-shadow: 0px 0px 10px #000000;
+
+    transition: all 0.5s;
+
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+}
+.ballOff { /* button to check for collisions */
+    position: absolute;
+
+    top: 0%;
+    left: 60%;
 
     width: 200px;
     height: 50px;

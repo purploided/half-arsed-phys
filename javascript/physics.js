@@ -7,7 +7,9 @@ let clsn = false;
 let orbt = false;
 let crash = false;
 let susp = false;
+let ballo = false;
 var electron = document.getElementById("electron");
+var electron2 = document.getElementById("electron2");
 /*
     Drag Physics
 */
@@ -168,6 +170,16 @@ function susOn() {
     document.getElementById("susOn").style.display = "none";
     document.getElementById("susOff").style.display = "block";
     document.getElementById("suslimit").style.display = "block";
+}
+function ballOff() {
+    document.getElementById("ballOff").style.display = "none";
+    document.getElementById("ballOn").style.display = "block";
+    document.getElementById("electron2").style.display = "none";
+}
+function ballOn() {
+    document.getElementById("ballOn").style.display = "none";
+    document.getElementById("ballOff").style.display = "block";
+    document.getElementById("electron2").style.display = "block";
 }
 /*
     crash listening
@@ -486,3 +498,73 @@ function glidePhysics() { // glide physics
     electron.style.transition = "400ms all";
 }
 */ 
+
+electron2.onmousedown = function (event) {
+    let shiftX = event.clientX - electron2.getBoundingClientRect()
+        .left;
+    let shiftY = event.clientY - electron2.getBoundingClientRect()
+        .top;
+    electron2.style.position = "absolute";
+    electron2.style.transition = "2ms linear";
+    electron2.style.zIndex = 1000;
+    document.body.append(electron2);
+    moveAt(event.pageX, event.pageY);
+    /*
+        move the "electron" along the X & Y axis
+        basically remembering the inital position
+    */
+    function moveAt(pageX, pageY) {
+        electron2.style.left = `${pageX - shiftX}px`; // (chaos code) electron.style.left = `${pageX - shiftX}%`;
+        electron2.style.top = `${pageY - shiftY}px`; // (chaos code) electron.style.top = `${pageY - shiftY}%`;
+    }
+    function onMouseMove(event) {
+        moveAt(event.pageX, event.pageY);
+    }
+    // moving the "electron" to the specifics of the mouse
+    document.addEventListener('mousemove', onMouseMove);
+    // stops the movement putting the "electron" in exact spot of the mouse
+    electron2.onmouseup = function () {
+
+        /*
+            the code below is just for testing scenarios where the "electron" is above a limit
+            this needs some great fixes, but it works perfectly for now
+        */
+        if (electron2.style.top >= "700px") { // if the "electron" is equal to or greater than 700px
+            document.removeEventListener('mousemove', onMouseMove);
+            electron2.onmouseup = document.getElementById("electron2").style.top = "1010px";
+            electron2.onmouseup = document.getElementById("electron2").style.transition = "302ms linear";
+
+            electron2.onmouseup = electron2.style.transform = "rotate(180deg)";
+
+            setTimeout(() => { document.getElementById("electron2").style.top = "970px"; }, 302.3);
+            setTimeout(() => { document.getElementById("electron2").style.top = "1010px"; }, 602.8);
+        }
+        else if (electron2.style.top >= "400px") { // if the "electron" is equal to or greater than 400px
+            document.removeEventListener('mousemove', onMouseMove);
+            electron2.onmouseup = document.getElementById("electron2").style.top = "1010px";
+            electron2.onmouseup = document.getElementById("electron2").style.transition = "332ms linear";
+
+            electron2.onmouseup = electron2.style.transform = "rotate(180deg)";
+
+            setTimeout(() => { document.getElementById("electron2").style.top = ax = Math.floor((Math.random() * 750) + 80); +"px"; }, 332.3);
+            setTimeout(() => { document.getElementById("electron2").style.top = "1010px"; }, 662.8);
+        }
+        else { // if the "electron" is at the terminal height it can possibly be at
+            document.removeEventListener('mousemove', onMouseMove);
+            electron2.onmouseup = document.getElementById("electron2").style.top = "1010px";
+            electron2.onmouseup = document.getElementById("electron2").style.transition = "302ms linear";
+
+            electron2.onmouseup = electron2.style.transform = "rotate(180deg)";
+
+            setTimeout(() => { document.getElementById("electron2").style.top = "820px"; }, 302.9);
+            setTimeout(() => { document.getElementById("electron2").style.top = "1010px"; }, 602.8);
+        }
+        /*
+        after the mouse click is released the "electron" drops
+        adds the needed physics
+        */
+    };
+    electron2.ondragstart = function () {
+        return false;
+    };
+};
