@@ -24,10 +24,14 @@ function newApp() {
         largeImageKey: 'physed-logo',
         largeImageText: 'github.com/NicohIas',
         startTimestamp: Date.now(),
-        instance: false
+        instance: false,
+        buttons: [{ 
+          label: 'Source', 
+          url: 'https://github.com/NicohIas/half-arsed-phys'
+        }]
       }).catch(err => console.error(err));
 
-      onsole.log('RPC Ready');
+      console.log('RPC Ready');
     });
     await RPC.login({clientId: clientID}).catch(err => console.error(err));
     await RPC.connect().catch(err => console.error(err));
