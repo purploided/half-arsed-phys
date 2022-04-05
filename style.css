@@ -6,6 +6,8 @@
     left: 49%;
     top: 30%;
 
+    z-index: 5;
+
     position: absolute;
 }
 .electron2 {
@@ -15,6 +17,8 @@
 
     left: 39%;
     top: 30%;
+
+    z-index: 4;
 
     display: none;
 

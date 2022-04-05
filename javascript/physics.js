@@ -3,6 +3,7 @@
     all the code written within this script is commented to a tea
     you can also comment/uncomment the other blocks to get some sort of chaotic version of the physics
 */
+
 let clsn = false;
 let orbt = false;
 let crash = false;
@@ -35,10 +36,44 @@ electron.onmousedown = function (event) {
     function onMouseMove(event) {
         moveAt(event.pageX, event.pageY);
     }
+    function detectColl() {
+        var element = document.getElementById("electron"),
+            rect = element.getBoundingClientRect(),
+            displayte = element.style.display;
+
+        element.style.display = "none";
+
+        var topElement = document.elementFromPoint(rect.left, rect.top, rect.right, rect.bottom);
+
+        element.style.display = displayte;
+
+        if (topElement.className.match(/electron/)) {
+
+            electron.style.backgroundColor = "yellow";
+            setTimeout(() => { electron.style.backgroundColor = "transparent"; }, 365);
+
+            electron2.style.backgroundColor = "orange";
+            setTimeout(() => { electron2.style.backgroundColor = "transparent"; }, 365);
+        }
+        else {
+            // 
+        }
+    }
+
+    // this code will check for collision every 10ms
+
+    const timer = setInterval(() => {
+        detectColl();
+        clearInterval(timer);
+    }, 10);
+
+    
     // moving the "electron" to the specifics of the mouse
     document.addEventListener('mousemove', onMouseMove);
     // stops the movement putting the "electron" in exact spot of the mouse
     electron.onmouseup = function () {
+
+        
 
         /*
             the code below is just for testing scenarios where the "electron" is above a limit
