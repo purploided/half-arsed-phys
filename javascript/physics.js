@@ -9,6 +9,7 @@ let orbt = false;
 let crash = false;
 let susp = false;
 let ballo = false;
+let chain = false;
 var electron = document.getElementById("electron");
 var electron2 = document.getElementById("electron2");
 /*
@@ -37,23 +38,25 @@ electron.onmousedown = function (event) {
         moveAt(event.pageX, event.pageY);
     }
     function detectColl() {
-        var element = document.getElementById("electron"),
+        var element = document.getElementById("electron"), // this is the "electron"
             rect = element.getBoundingClientRect(),
             displayte = element.style.display;
 
-        element.style.display = "none";
+        element.style.display = "none"; // this is to hide the "electron"
 
-        var topElement = document.elementFromPoint(rect.left, rect.top, rect.right, rect.bottom);
+        var topElement = document.elementFromPoint(rect.left, rect.top, rect.right, rect.bottom); // this is to get the element that is at the top of the "electron"
 
         element.style.display = displayte;
 
-        if (topElement.className.match(/electron/)) {
+        if (topElement.className.match(/electron/)) { // this is to check if the "electron" is colliding with the "electron2"
 
             electron.style.backgroundColor = "yellow";
             setTimeout(() => { electron.style.backgroundColor = "transparent"; }, 365);
 
             electron2.style.backgroundColor = "orange";
             setTimeout(() => { electron2.style.backgroundColor = "transparent"; }, 365);
+
+            chain = true; // this is to set the chain to true
         }
         else {
             // 
@@ -62,10 +65,27 @@ electron.onmousedown = function (event) {
 
     // this code will check for collision every 10ms
 
-    const timer = setInterval(() => {
+    const timer = setInterval(() => { // this is the timer for the collision detection
         detectColl();
         clearInterval(timer);
     }, 10);
+
+    /*
+        Spark Chains
+    */
+    function sparkChains() { // this will create the spark chains
+        if (chain == true) {
+
+            setTimeout(() => { electron2.style.width = "40px", electron2.style.height = "40px", electron2.style.backgroundColor = "black"; }, 500);
+            setTimeout(() => { electron2.style.width = "45px", electron2.style.height = "45px", electron2.style.backgroundColor = "transparent"; }, 1000);
+
+            setTimeout(() => { chain = false; }, 2000);
+        }
+        else {
+            //
+        }
+    }
+    sparkChains();
 
     
     // moving the "electron" to the specifics of the mouse
@@ -274,6 +294,8 @@ function crashPhysics() {
         console.error("Crash expected."); // log that it expected a crash
     }
 }
+
+
 /*
     i am going to script a "wall scraping" type thingy
 //
