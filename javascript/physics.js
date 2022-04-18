@@ -10,8 +10,12 @@ let crash = false;
 let susp = false;
 let ballo = false;
 let chain = false;
+let thermal = false;
+let nuclear = false;
 var electron = document.getElementById("electron");
 var electron2 = document.getElementById("electron2");
+var nukeScreen = document.getElementById("nukeScreen");
+
 /*
     Drag Physics
 */
@@ -56,6 +60,9 @@ electron.onmousedown = function (event) {
             electron2.style.backgroundColor = "orange";
             setTimeout(() => { electron2.style.backgroundColor = "transparent"; }, 365);
 
+            thermoDynamics();
+            sparkChains();
+
             chain = true; // this is to set the chain to true
         }
         else {
@@ -73,11 +80,12 @@ electron.onmousedown = function (event) {
     /*
         Spark Chains
     */
+
     function sparkChains() { // this will create the spark chains
         if (chain == true) {
 
-            setTimeout(() => { electron2.style.width = "40px", electron2.style.height = "40px", electron2.style.backgroundColor = "black"; }, 500);
-            setTimeout(() => { electron2.style.width = "45px", electron2.style.height = "45px", electron2.style.backgroundColor = "transparent"; }, 1000);
+            setTimeout(() => { electron2.style.backgroundColor = "orange"; }, 500);
+            setTimeout(() => { electron2.style.backgroundColor = "transparent"; }, 2000);
 
             setTimeout(() => { chain = false; }, 2000);
         }
@@ -85,7 +93,107 @@ electron.onmousedown = function (event) {
             //
         }
     }
-    sparkChains();
+    
+    let allowNukes = false; // Allows the nukes (inside the thermodynamics function) to be activated
+
+    /*
+        Thermodynamics
+    */
+
+    function thermoDynamics() { // this will create the thermodynamics
+        if (allowNukes == true) {
+            if (chain == true) {
+
+                thermal = true; // this is to set the thermal to true
+
+                /*
+                    Nuclear Countdown
+                */
+
+                setTimeout(() => { electron.style.backgroundColor = "yellow"; }, 500);
+                setTimeout(() => { electron.style.backgroundColor = "orange"; }, 5500);
+                setTimeout(() => { electron.style.backgroundColor = "red"; }, 11000);
+                setTimeout(() => { electron.style.backgroundColor = "transparent"; }, 12000);
+
+                setTimeout(() => { chain = false; }, 5000); // this is to set the chain to false
+
+                if (thermal == true) { // if thermal is true then the nuke will be activated
+
+                    /*
+                        Nuclear Reaction
+                    */
+
+                    setTimeout(() => { nukeScreen.style.opacity = "100", nukeScreen.style.zIndex = "110000"; }, 13000);
+                    setTimeout(() => { nukeScreen.style.opacity = "0", nukeScreen.style.zIndex = "-5"; }, 20000);
+
+                    setTimeout(() => { thermal = false }, 20000);
+                }
+                else {
+                    //
+                }
+            }
+            else {
+                thermal = false;
+            }
+        }
+        else { // if allowNukes is false
+            if (chain == true) {
+                thermal = true;
+
+                if (thermal == true) { // thermal countdown w/o the nuke
+                    setTimeout(() => { electron.style.backgroundColor = "yellow"; }, 500);
+                    setTimeout(() => { electron.style.backgroundColor = "orange"; }, 1500);
+                    setTimeout(() => { electron.style.backgroundColor = "red"; }, 2500);
+                    setTimeout(() => { electron.style.backgroundColor = "transparent"; }, 3500);
+                }
+                else {
+                    //
+                }
+            }
+        }
+    }
+
+    /*
+        Electrodynamics
+    */
+
+    function electroDynamics() {
+
+        let magneticField = true; // this is the magnetic field
+
+        electron.style.transition = "0ms linear";
+    
+        // create a theoretical magnetic field
+
+        if (magneticField == true) { // if the magnetic field is true then
+
+            electron.onmouseenter = () => { // when the "electron" is hovered over then
+                electron.style.borderWidth = "1px";
+                electron.style.borderColor = "lightblue";
+                electron.style.borderStyle = "solid";
+                electron.style.borderRadius = "50%";
+            }
+            electron.onmouseleave = () => { // when the "electron" is not hovered over then
+                electron.style.borderWidth = "0px";
+                electron.style.borderColor = "transparent";
+                electron.style.borderStyle = "none";
+                electron.style.borderRadius = "0%";
+
+        /*
+            the second i did this it made a cool "warping" effect when you
+            hover over the "electron" pretty sick if i do say so
+            myself
+        */
+            }
+        }
+        else {
+            // do nothing
+        }
+    }
+    
+    electroDynamics();
+
+    
 
     
     // moving the "electron" to the specifics of the mouse

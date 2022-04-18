@@ -4,7 +4,7 @@
     cursor: pointer;
 
     left: 49%;
-    top: 30%;
+    top: 45%;
 
     z-index: 5;
 
@@ -23,6 +23,19 @@
     display: none;
 
     position: absolute;
+}
+.nukeScreen {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -5;
+
+    transition: linear 50ms;
+
+    opacity: 0;
 }
 .suslimit {
     top: 71%;
