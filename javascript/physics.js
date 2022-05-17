@@ -159,7 +159,7 @@ electron.onmousedown = function (event) {
 
     function electroDynamics() {
 
-        let magneticField = true; // this is the magnetic field
+        let magneticField = false; // this is the magnetic field
 
         electron.style.transition = "0ms linear";
     
@@ -185,6 +185,17 @@ electron.onmousedown = function (event) {
             myself
         */
             }
+
+        /*
+            this script will create a half-arsed magnetic pull
+            from "electron2" to the "electron"
+        */
+            setTimeout(() => {
+                electron2.style.left = `${electron.style.left}`;
+                electron2.style.top = `${electron.style.top}`;
+            }, 600);
+    
+            electron2.style.transition = "1020ms linear";
         }
         else {
             // do nothing
@@ -193,8 +204,157 @@ electron.onmousedown = function (event) {
     
     electroDynamics();
 
-    
+    /*
+        Weight
+    */
 
+    function weight() { // weight is the DRAG WEIGHT and not the weight of the ball!
+
+        /*
+            this script will create a weight for the "electron"
+
+            This weight controls how realistically heavy the "electron" is
+        */
+
+        let weight = 0; // this is the weight of the "electron"
+
+        switch(weight) {
+            case 0:
+                //
+                break;
+            case 1:
+                electron.style.transition = "50ms linear";
+                break;
+            case 2:
+                electron.style.transition = "500ms linear";
+                break;
+            case 3:
+                electron.style.transition = "1000ms linear";
+                break;
+            case 4:
+                electron.style.transition = "5000ms linear";
+                break;
+            default:
+                //
+                break;
+        }
+    }
+
+    weight();
+
+    /*
+        Density
+    */
+
+    function density() { // this is the density of the "electron"
+        
+        /*
+            this script will create a density for the "electron"
+
+            |---------------------------------------------------------------------------------------------------------------------|
+            |                                           --- WARNING PLEASE READ ---                                               |
+            |                                The density function is part of the weight function                                  |
+            |---------------------------------------------------------------------------------------------------------------------|
+
+            this density will show how denser objects fall to the ground faster
+
+        */
+
+        let density = 0; // this is the density of the "electron"
+
+        switch(density) {
+            case 0:
+                electron.onmouseup = document.getElementById("electron").style.top = "1010px";
+                electron.onmouseup = document.getElementById("electron").style.transition = "302ms linear";
+
+                electron.onmouseup = electron.style.transform = "rotate(180deg)";
+
+                setTimeout(() => { document.getElementById("electron").style.top = "970px"; }, 302.3);
+                setTimeout(() => { document.getElementById("electron").style.top = "1010px"; }, 602.8);
+                break;
+            case 1:
+                electron.onmouseup = document.getElementById("electron").style.top = "1010px";
+                electron.onmouseup = document.getElementById("electron").style.transition = "202ms linear";
+
+                electron.onmouseup = electron.style.transform = "rotate(180deg)";
+
+                setTimeout(() => { document.getElementById("electron").style.top = "970px"; }, 202.3);
+                setTimeout(() => { document.getElementById("electron").style.top = "1010px"; }, 402.8);
+                break;
+            case 2:
+                electron.onmouseup = document.getElementById("electron").style.top = "1010px";
+                electron.onmouseup = document.getElementById("electron").style.transition = "102ms linear";
+                break;
+            case 3:
+                electron.onmouseup = document.getElementById("electron").style.top = "1010px";
+                electron.onmouseup = document.getElementById("electron").style.transition = "52ms linear";
+                break;
+            default:
+                //
+                break;
+        }
+
+        /*
+            This part of the "density" function makes the
+            "electron" collapse in on itself to make black hole
+            effect-type-thingy
+
+            it has a 50/50 chance to either become neutron star (magnetar and pulsar)
+            or black hole
+        */
+
+        if (density == 4) { // neutron star
+            electron.onmouseenter = () => { // when the "electron" is hovered over then
+                electron.style.borderWidth = "1px";
+                electron.style.borderColor = "blue";
+                electron.style.borderStyle = "solid";
+                electron.style.borderRadius = "50%";
+            }
+            electron.onmouseleave = () => { // when the "electron" is not hovered over then
+                electron.style.borderWidth = "0px";
+                electron.style.borderColor = "transparent";
+                electron.style.borderStyle = "none";
+                electron.style.borderRadius = "0%";
+            }
+
+            setTimeout(() => {
+                electron2.style.left = `${electron.style.left}`;
+                electron2.style.top = `${electron.style.top}`;
+            }, 600);
+    
+            electron2.style.transition = "200ms linear";
+
+            electron.onmouseup = document.getElementById("electron").style.top = "1010px";
+            electron.onmouseup = document.getElementById("electron").style.transition = "302ms linear";
+
+            electron.onmouseup = electron.style.transform = "rotate(180deg)";
+
+            setTimeout(() => { document.getElementById("electron").style.top = "970px"; }, 302.3);
+            setTimeout(() => { document.getElementById("electron").style.top = "1010px"; }, 602.8);
+        }
+        else if(density >= 5) { // black hole
+            electron.onmouseenter = () => { // when the "electron" is hovered over then
+                electron.style.borderWidth = "2px";
+                electron.style.borderColor = "orange";
+                electron.style.borderStyle = "solid";
+                electron.style.borderRadius = "50%";
+                electron.style.opacity = "1";
+            }
+            electron.onmouseleave = () => { // when the "electron" is not hovered over then
+                electron.style.borderWidth = "2px";
+                electron.style.borderColor = "orange";
+                electron.style.opacity = "0.5";
+                electron.style.borderRadius = "50%";
+            }
+
+            setTimeout(() => {
+                electron2.style.left = `${electron.style.left}`;
+                electron2.style.top = `${electron.style.top}`;
+            }, 600);
+    
+            electron2.style.transition = "400ms linear";
+        }
+    }
     
     // moving the "electron" to the specifics of the mouse
     document.addEventListener('mousemove', onMouseMove);
@@ -209,13 +369,9 @@ electron.onmousedown = function (event) {
         */
         if (electron.style.top >= "700px") { // if the "electron" is equal to or greater than 700px
             document.removeEventListener('mousemove', onMouseMove);
-            electron.onmouseup = document.getElementById("electron").style.top = "1010px";
-            electron.onmouseup = document.getElementById("electron").style.transition = "302ms linear";
 
-            electron.onmouseup = electron.style.transform = "rotate(180deg)";
+            density();
 
-            setTimeout(() => { document.getElementById("electron").style.top = "970px"; }, 302.3);
-            setTimeout(() => { document.getElementById("electron").style.top = "1010px"; }, 602.8);
             if (orbt == true) {
                 orbitPhysics();
             }
@@ -231,13 +387,9 @@ electron.onmousedown = function (event) {
         }
         else if (electron.style.top >= "400px") { // if the "electron" is equal to or greater than 400px
             document.removeEventListener('mousemove', onMouseMove);
-            electron.onmouseup = document.getElementById("electron").style.top = "1010px";
-            electron.onmouseup = document.getElementById("electron").style.transition = "332ms linear";
 
-            electron.onmouseup = electron.style.transform = "rotate(180deg)";
-
-            setTimeout(() => { document.getElementById("electron").style.top = ax = Math.floor((Math.random() * 750) + 80); +"px"; }, 332.3);
-            setTimeout(() => { document.getElementById("electron").style.top = "1010px"; }, 662.8);
+            density();
+            
             if (orbt == true) {
                 orbitPhysics();
             }
@@ -253,13 +405,9 @@ electron.onmousedown = function (event) {
         }
         else { // if the "electron" is at the terminal height it can possibly be at
             document.removeEventListener('mousemove', onMouseMove);
-            electron.onmouseup = document.getElementById("electron").style.top = "1010px";
-            electron.onmouseup = document.getElementById("electron").style.transition = "302ms linear";
 
-            electron.onmouseup = electron.style.transform = "rotate(180deg)";
+            density();
 
-            setTimeout(() => { document.getElementById("electron").style.top = "820px"; }, 302.9);
-            setTimeout(() => { document.getElementById("electron").style.top = "1010px"; }, 602.8);
             if (orbt == true) {
                 orbitPhysics();
             }
@@ -294,6 +442,7 @@ electron.onmousedown = function (event) {
 
     Collision Physics
 */
+
 function collisionPhysics() {
     // this will set a timeout and then change the background color of the "electron" when it hits, exactly
     collisionTimeout = setTimeout; // to differ the setTimeout from the collision timeout
